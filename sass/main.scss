@@ -1,0 +1,27 @@
+// COLOR VARIABLES
+$color-salmon: hsl(0, 100%, 68%);
+$color-blue-dark: hsl(230, 29%, 20%);
+$color-gray-dark: hsl(230, 11%, 40%);
+$color-gray: hsl(231, 7%, 65%);
+$color-gray-light: hsl(207, 33%, 95%);
+
+// FONT VARIABLES
+$font-family-primary: 'Barlow Condensed', sans-serif;
+$font-family-body: 'Barlow', sans-serif;
+
+// FONT SIZE
+$default-font-size: 1.8rem;
+
+// GLOBAL
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+html {
+    box-sizing: border-box;
+    font-size: 62.5%; //1rem = 10px
+}
