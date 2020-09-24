@@ -4,13 +4,11 @@ $color-blue-dark: hsl(230, 29%, 20%);
 $color-gray-dark: hsl(230, 11%, 40%);
 $color-gray: hsl(231, 7%, 65%);
 $color-gray-light: hsl(207, 33%, 95%);
+$color-white: hsl(0, 0%, 100%);
 
 // FONT VARIABLES
 $font-family-primary: 'Barlow Condensed', sans-serif;
 $font-family-body: 'Barlow', sans-serif;
-
-// FONT SIZE
-$default-font-size: 1.8rem;
 
 // GLOBAL
 *,
@@ -24,4 +22,141 @@ $default-font-size: 1.8rem;
 html {
     box-sizing: border-box;
     font-size: 62.5%; //1rem = 10px
+}
+
+body {
+    width: 100%;
+    min-height: 100vh;
+    font-family: $font-family-primary;
+    padding: 3rem;
+    position: relative;
+    overflow-x: hidden;
+}
+
+.nav {
+    &__container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    &__logo {
+        display: block;
+        height: 2.38rem;
+        width: auto;
+    }
+
+    &__list {
+        position: absolute;
+        top: 100px;
+        left: 50%;
+        transform: translateX(70%);
+        width: 80%;
+        text-align: center;
+        list-style: none;
+        padding: 2.2rem;
+        background-color: $color-white;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
+        border-radius: 4px;
+        //display: none;
+        transition: transform .4s ease-in;
+    }
+
+    &__list.nav-toggle {
+        transform: translateX(-50%);
+    }
+
+    &__item {
+        font-size: 1.8rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+
+        &:not(:last-child) {
+            margin-bottom: 1.8rem;
+        }
+    }
+
+    hr {
+        margin-bottom: 1.8rem;
+    }
+
+    &__item--login {
+        a {
+            color: $color-gray;
+        }
+    }
+
+    &__link {
+        text-decoration: none;
+        color: $color-blue-dark;
+    }
+
+    &__hamburger {
+        display: inline-block;
+        cursor: pointer;
+        padding: 8px 0;
+    }
+
+    &__ham-bar {
+        height: 2px;
+        width: 24px;
+        background-color: $color-blue-dark;
+        position: relative;
+        transition: .5s ease all;
+    }
+
+    &__ham-bar::before,
+    &__ham-bar::after {
+        content: '';
+        position: absolute;
+	    left: 0;
+        height: 2px;
+        width: 24px;
+        background-color: $color-blue-dark;
+        transition: .4s ease all;
+    }
+
+    &__ham-bar::before {
+        top: -7px;
+    }
+
+    &__ham-bar::after {
+        bottom: -7px;
+    }
+    
+    &__hamburger:hover {
+        .nav__ham-bar::before {
+            top: -8px;
+        }
+
+        .nav__ham-bar::after {
+            bottom: -8px;
+        }
+    }
+    
+    &__hamburger.close {
+        .nav__ham-bar {
+            background-color: transparent;
+        }
+
+        .nav__ham-bar::before {
+            top: 0;
+	        transform: rotate(45deg);
+        }
+
+        .nav__ham-bar::after {
+            top: 0;
+	        transform: rotate(-45deg);
+        }
+    }
+}
+
+.illustration {
+    display: block;
+    width: 480px;
+}
+
+.content {
+
 }

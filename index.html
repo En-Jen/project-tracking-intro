@@ -17,20 +17,36 @@
     .attribution a { color: hsl(228, 45%, 44%); }
   </style>
 </head>
+
 <body>
-  Product
-  Features
-  Pricing
-  Login
+  <nav class="nav">
+    <div class="nav__container">
+      <img class="nav__logo" src="./images/logo.svg" alt="logo">
+      <ul class="nav__list">
+        <li class="nav__item"><a class="nav__link" href="#">Product</a></li>
+        <li class="nav__item"><a class="nav__link" href="#">Features</a></li>
+        <li class="nav__item"><a class="nav__link" href="#">Pricing</a></li>
+        <hr>
+        <li class="nav__item nav__item--login"><a class="nav__link" href="#">Login</a></li>
+      </ul>
+      <div class="nav__hamburger">
+        <div class="nav__ham-bar"></div>
+      </div>
+    </div>
+  </nav>
 
-  New
-  Monograph Dashboard
-
-  Powerful insights into your team
-  Project planning and time tracking for agile teams
-
-  Schedule a demo
-  to see a live preview
+  <main>
+    <img class="illustration" src="./images/illustration-devices.svg" alt="Devices image">
+    <div class="content">
+      <h2 class="content__heading-secondary"><span>New</span> Monograph Dashboard</h2>
+      <h1 class="content__heading-primary">Powerful insights into your team</h1>
+      <p class="content__description">Project planning and time tracking for agile teams</p>
+      <div class="content__cta">
+        <button class="content__btn">Schedule a demo</button>
+        <p class="content__cta-text">to see a live preview</p>
+      </div>
+    </div>
+  </main>
   
   <footer>
     <p class="attribution">
