@@ -28,12 +28,34 @@ body {
     width: 100%;
     min-height: 100vh;
     font-family: $font-family-primary;
-    padding: 3rem;
+    text-transform: uppercase;
     position: relative;
     overflow-x: hidden;
 }
 
+body::before {
+    content: '';
+    width: 50vw;
+    height: 427px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: $color-gray-light;
+    border-radius: 0 0 0 60px;
+    z-index: -1;
+}
+
+.container {
+    padding: 3.8rem 3.2rem;
+
+    @media only screen and (min-width: 768px) {
+        padding: 5rem 6rem;
+    }
+}
+
 .nav {
+    margin-bottom: 6rem;
+
     &__container {
         display: flex;
         justify-content: space-between;
@@ -49,39 +71,74 @@ body {
     &__list {
         position: absolute;
         top: 100px;
-        left: 50%;
-        transform: translateX(70%);
-        width: 80%;
+        // left: 50%;
+        // transform: translateX(70%);
+        right: 50%;
+        transform: translateX(160%);
+        width: 84%;
         text-align: center;
         list-style: none;
-        padding: 2.2rem;
+        padding: 2.4rem;
         background-color: $color-white;
         box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
         border-radius: 4px;
-        //display: none;
+        z-index: 1;
         transition: transform .4s ease-in;
+
+        @media only screen and (min-width: 768px) {
+            position: initial;
+            display: flex;
+            background-color: transparent;
+            box-shadow: none;
+            transform: translateX(0%);
+            width: auto;
+            padding: 0;
+        }
     }
 
+    // Visible navigation
     &__list.nav-toggle {
-        transform: translateX(-50%);
+        transform: translateX(50%);
     }
 
     &__item {
         font-size: 1.8rem;
         font-weight: 700;
-        text-transform: uppercase;
         letter-spacing: 1px;
 
         &:not(:last-child) {
-            margin-bottom: 1.8rem;
+            margin-bottom: 2.5rem;
+
+            @media only screen and (min-width: 768px) {
+                margin-bottom: 0;
+                margin-right: 3rem;
+                display: flex;
+                align-items: center;
+            }
+        }
+    }
+
+    &__dot {
+        @media only screen and (min-width: 768px) {
+            display: block;
+            height: 6px;
+            width: 6px;
+            border-radius: 50%;
+            background-color: hsla(235, 7%, 65%, 0.35);
         }
     }
 
     hr {
         margin-bottom: 1.8rem;
+
+        @media only screen and (min-width: 768px) {
+            display: none;
+        }
     }
 
     &__item--login {
+        position: relative;
+         
         a {
             color: $color-gray;
         }
@@ -92,10 +149,15 @@ body {
         color: $color-blue-dark;
     }
 
+    // Hamburger styles
     &__hamburger {
         display: inline-block;
         cursor: pointer;
         padding: 8px 0;
+
+        @media only screen and (min-width: 768px) {
+            display: none;
+        }
     }
 
     &__ham-bar {
@@ -125,16 +187,7 @@ body {
         bottom: -7px;
     }
     
-    &__hamburger:hover {
-        .nav__ham-bar::before {
-            top: -8px;
-        }
-
-        .nav__ham-bar::after {
-            bottom: -8px;
-        }
-    }
-    
+    // Styles for when hamburger is clicked and turns to X
     &__hamburger.close {
         .nav__ham-bar {
             background-color: transparent;
@@ -152,11 +205,136 @@ body {
     }
 }
 
+// main {
+//     width: 100%;
+//     height: 100%;
+//     display: flex;
+//     flex-direction: column;
+//     justify-content: center;
+// }
+
 .illustration {
     display: block;
-    width: 480px;
+    width: 162%;
+    max-width: 585px;
+    transform: translateX(-24px);
+    margin-bottom: 8.7rem;
+
+    @media only screen and (min-width: 620px) {
+        margin: 0 auto 8.7rem auto;
+        transform: translateX(0);
+    }
 }
 
 .content {
+    &__heading-secondary {
+        font-size: 1.5rem;
+        font-weight: 400;
+        letter-spacing: 5px;
+        color: $color-gray;
+        margin-bottom: 1.6rem;
+        display: flex;
+        align-items: center;
 
+        span {
+            display: inline-block;
+            width: 48px;
+            height: 25px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            background-color: $color-blue-dark;
+            color: $color-white;
+            border-radius: 50px;
+            margin-right: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    }
+
+    &__heading-primary {
+        font-size: 4rem;
+        line-height: 1;
+        color: $color-blue-dark;
+        margin-bottom: 1.7rem;
+    }
+
+    &__description {
+        text-transform: none;
+        font-size: 1.8rem;
+        line-height: 1.44;
+        font-family: $font-family-body;
+        color: $color-gray-dark;
+        padding-right: 2rem;
+        margin-bottom: 3rem;
+    }
+
+    &__cta {
+        display: flex;
+        align-items: center;
+    }
+
+    &__btn {
+        font-size: 1.4rem;
+        font-weight: 700;
+        font-family: $font-family-primary;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        color: $color-white;
+        background-color: $color-salmon;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        padding: 1rem 2.5rem;
+        border-radius: 6px;
+        margin-right: 1.8rem;
+        transition: background-color .3s ease;
+    }
+
+    &__btn:hover {
+        background-color: hsla(0, 100%, 68%, 0.75);
+    }
+
+    &__cta-text {
+        font-size: 1.4rem;
+        letter-spacing: 2.5px;
+        color: $color-gray;
+    }
+}
+
+// ATTRIBUTION
+.attribution {
+    color: $color-blue-dark;
+    font-size: 11px;
+    font-family: $font-family-body;
+    line-height: 1.6rem;
+    text-align: center;
+    text-transform: none;
+    position: absolute;
+    bottom: .5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-top: 1rem;
+
+    a {
+        color: $color-salmon;
+        text-decoration: none;
+        position: relative;
+    }
+
+    a::after {
+        content: "";
+        width: 100%;
+        height: 1px;
+        background-color: $color-salmon;
+        position: absolute;
+        bottom: -2px;
+        left: 0;
+        transform: scaleX(0);
+        transition: transform .3s;
+    }
+
+    a:hover::after {
+        transform: scaleX(1);
+    }
 }
