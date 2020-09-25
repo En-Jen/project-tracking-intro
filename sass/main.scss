@@ -43,18 +43,32 @@ body::before {
     background-color: $color-gray-light;
     border-radius: 0 0 0 60px;
     z-index: -1;
+
+    @media only screen and (min-width: 768px) {
+        width: 49vw;
+    }
 }
 
 .container {
     padding: 3.8rem 3.2rem;
+    max-width: 1230px;
+    margin: auto;
 
     @media only screen and (min-width: 768px) {
         padding: 5rem 6rem;
+    }
+
+    @media only screen and (min-width: 1230px) {
+        padding: 6.5rem 6rem;
     }
 }
 
 .nav {
     margin-bottom: 6rem;
+
+    @media only screen and (min-width: 1024px) {
+        margin-bottom: 11.4rem;
+    }
 
     &__container {
         display: flex;
@@ -66,13 +80,15 @@ body::before {
         display: block;
         height: 2.38rem;
         width: auto;
+
+        @media only screen and (min-width: 768px) {
+            height: 3.176rem;
+        }
     }
 
     &__list {
         position: absolute;
         top: 100px;
-        // left: 50%;
-        // transform: translateX(70%);
         right: 50%;
         transform: translateX(160%);
         width: 84%;
@@ -105,13 +121,18 @@ body::before {
         font-size: 1.8rem;
         font-weight: 700;
         letter-spacing: 1px;
+        position: relative;
+
+        @media only screen and (min-width: 768px) {
+            font-size: 1.5rem;
+        }
 
         &:not(:last-child) {
             margin-bottom: 2.5rem;
 
             @media only screen and (min-width: 768px) {
                 margin-bottom: 0;
-                margin-right: 3rem;
+                margin-right: 4.2rem;
                 display: flex;
                 align-items: center;
             }
@@ -147,6 +168,24 @@ body::before {
     &__link {
         text-decoration: none;
         color: $color-blue-dark;
+    }
+
+    @media only screen and (min-width: 768px) {
+        &__link::after {
+            content: "";
+            width: 100%;
+            height: 2px;
+            background-color: $color-salmon;
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            transform: scaleX(0);
+            transition: transform .3s;
+        }
+    
+        &__link:hover::after {
+            transform: scaleX(1);
+        }
     }
 
     // Hamburger styles
@@ -205,13 +244,15 @@ body::before {
     }
 }
 
-// main {
-//     width: 100%;
-//     height: 100%;
-//     display: flex;
-//     flex-direction: column;
-//     justify-content: center;
-// }
+main {
+    display: flex;
+    flex-direction: column;
+
+    @media only screen and (min-width: 1024px) {
+        flex-direction: row-reverse;
+        align-items: center;
+    }
+}
 
 .illustration {
     display: block;
@@ -224,9 +265,29 @@ body::before {
         margin: 0 auto 8.7rem auto;
         transform: translateX(0);
     }
+
+    @media only screen and (min-width: 1024px) {
+        margin: 0 -29% 0 0;
+        width: 76%;
+        max-width: 960px;
+        flex: 1;
+    }
+
+    @media only screen and (min-width: 1230px) {
+        transform: translateX(110px);
+        width: 100%;
+    }
 }
 
 .content {
+    @media only screen and (min-width: 768px) {
+        max-width: 550px;
+    }
+
+    @media only screen and (min-width: 1024px) {
+        flex: 1;
+    }
+
     &__heading-secondary {
         font-size: 1.5rem;
         font-weight: 400;
@@ -257,16 +318,28 @@ body::before {
         line-height: 1;
         color: $color-blue-dark;
         margin-bottom: 1.7rem;
+
+        @media only screen and (min-width: 768px) {
+            font-size: 6.4rem;
+        }
+
+        @media only screen and (min-width: 1024px) {
+            margin-bottom: 3rem;
+        }
     }
 
     &__description {
+        max-width: 280px;
         text-transform: none;
         font-size: 1.8rem;
         line-height: 1.44;
         font-family: $font-family-body;
         color: $color-gray-dark;
-        padding-right: 2rem;
         margin-bottom: 3rem;
+
+        @media only screen and (min-width: 1024px) {
+            margin-bottom: 6.5rem;
+        }
     }
 
     &__cta {
@@ -289,6 +362,12 @@ body::before {
         border-radius: 6px;
         margin-right: 1.8rem;
         transition: background-color .3s ease;
+
+        @media only screen and (min-width: 768px) {
+            padding: 1.5rem 3.2rem;
+            font-size: 1.6rem;
+            margin-right: 2.5rem;
+        }
     }
 
     &__btn:hover {
@@ -299,6 +378,11 @@ body::before {
         font-size: 1.4rem;
         letter-spacing: 2.5px;
         color: $color-gray;
+
+        @media only screen and (min-width: 768px) {
+            font-size: 1.5rem;
+            letter-spacing: 5px;
+        }
     }
 }
 
