@@ -140,20 +140,15 @@ body::before {
     }
 
     &__dot {
+        display: block;
+        height: 1px;
+        width: 100%;
+        background-color: hsla(235, 7%, 65%, 0.35);
+
         @media only screen and (min-width: 768px) {
-            display: block;
             height: 6px;
             width: 6px;
             border-radius: 50%;
-            background-color: hsla(235, 7%, 65%, 0.35);
-        }
-    }
-
-    hr {
-        margin-bottom: 1.8rem;
-
-        @media only screen and (min-width: 768px) {
-            display: none;
         }
     }
 

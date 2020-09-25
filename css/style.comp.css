@@ -99,18 +99,16 @@ body::before {
           margin-right: 4.2rem;
           display: flex;
           align-items: center; } }
-  @media only screen and (min-width: 768px) {
-    .nav__dot {
-      display: block;
-      height: 6px;
-      width: 6px;
-      border-radius: 50%;
-      background-color: rgba(160, 161, 172, 0.35); } }
-  .nav hr {
-    margin-bottom: 1.8rem; }
+  .nav__dot {
+    display: block;
+    height: 1px;
+    width: 100%;
+    background-color: rgba(160, 161, 172, 0.35); }
     @media only screen and (min-width: 768px) {
-      .nav hr {
-        display: none; } }
+      .nav__dot {
+        height: 6px;
+        width: 6px;
+        border-radius: 50%; } }
   .nav__item--login {
     position: relative; }
     .nav__item--login a {
